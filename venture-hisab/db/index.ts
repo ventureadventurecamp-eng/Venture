@@ -1,2 +1,0 @@
-import {drizzle} from 'drizzle-orm/sqlite-proxy';import {sqlite} from './core.mjs';import * as schema from './schema';
-export function getDb(){return drizzle(async(query,params,method)=>{const statement=sqlite().prepare(query);if(method==='run'){statement.run(...params);return {rows:[]}}statement.setReturnArrays(true);if(method==='get')return {rows:statement.get(...params)||[]};return {rows:statement.all(...params)}},{schema})}

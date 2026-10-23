@@ -1,1 +1,0 @@
-export default function Logout(){return <div className="authpage"><section className="authcard"><h1>Logout</h1><form method="post" action="/api/auth/logout"><button className="btn primary">Logout from this device</button></form><a href="/">Back</a></section></div>}
