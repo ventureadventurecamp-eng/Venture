@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: venture-hisab
+    runtime: docker
+    plan: starter
+    numInstances: 1
+    healthCheckPath: /login
+    envVars:
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: APP_ORIGIN
+        sync: false
+      - key: DB_PATH
+        value: /data/venture.sqlite
+    disk:
+      name: venture-data
+      mountPath: /data
+      sizeGB: 1

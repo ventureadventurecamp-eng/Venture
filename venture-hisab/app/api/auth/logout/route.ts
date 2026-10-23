@@ -1,0 +1,2 @@
+import {sameOrigin} from '../../../../auth/session';import {destroySession} from '../../../../auth/security.mjs';import {cookies} from 'next/headers';
+export async function POST(req:Request){if(!sameOrigin(req))return new Response('Invalid origin',{status:403});const jar=await cookies();destroySession(jar.get('venture_session')?.value);jar.delete('venture_session');return Response.redirect(new URL('/login',process.env.APP_ORIGIN||req.url),303)}
